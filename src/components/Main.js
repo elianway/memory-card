@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Display from './Display/Display'
-import GameBoard from './GameBoard/GameBoard'
+import DisplayScore from './Display/Display'
+import GameBoard from './GameBoard/Gameboard'
 import { shuffleCards, capitalizeFirstLetter } from './Utils'
 
 const Main = () => {
@@ -45,7 +45,7 @@ const Main = () => {
     if (clickedPokemons.includes(pokemonName)) {
       resetGame()
     } else {
-      const newScore = currentScore ++
+      const newScore = currentScore + 1
       if (newScore > bestScore) setBestScore(newScore)
       setCurrentScore(newScore)
       setClickedPokemons((prevState) => [...prevState, pokemonName])
@@ -59,7 +59,7 @@ const Main = () => {
 
   return (
     <MainWrapper>
-      <Display
+      <DisplayScore
         currentScore={currentScore}
         bestScore={bestScore}
       />
